@@ -1,13 +1,28 @@
 export const query = `
-  query ($slug: String) {
-    product(channel: "uk",  slug: $slug) {
-		  id
+query ($slug: String) {
+  product(channel: "uk", slug: $slug) {
+    id
+    name
+    description
+    thumbnail {
+      url
+      alt
+    }
+    category {
+      slug
       name
-      description
-      pricing{
-        onSale
-        displayGrossPrices
+    }
+    pricing {
+      onSale
+      priceRangeUndiscounted {
+        start {
+          currency
+          gross {
+            amount
+          }
+        }
       }
     }
   }
+}
 `
