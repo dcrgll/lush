@@ -10,7 +10,6 @@ export default async function Category({ params }) {
   const category = getCategory(data)
   const { products } = category
 
-  console.log(category)
   return (
     <div>
       <h1>Category</h1>
