@@ -2,6 +2,10 @@
   "name": "lush",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Dan Cargill",
+    "email": "dan@cargill.dev"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,6 +29,7 @@
   "devDependencies": {
     "@daaaan/eslint-config": "^2.1.4",
     "@daaaan/prettier-config": "^2.1.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "eslint": "^8.38.0",
     "prettier": "^2.8.7"
   },

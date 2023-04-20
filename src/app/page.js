@@ -1,25 +1,24 @@
-import Link from 'next/link'
 import { useQuery } from '@/utils/useQuery'
+
+import Card from '@/app/components/card'
+import Grid from '@/app/components/grid'
+import Template from '@/app/components/template'
 
 import { getCategories } from './helpers'
 import { query } from './query'
 
 export default async function HomePage() {
   const data = await useQuery(query)
-
   const categories = getCategories(data)
 
   return (
-    <div>
-      <h1>Home</h1>
-      <ul>
+    <Template title='Home'>
+      <Grid>
         {categories.map((category) => (
-          <li key={category.id}>
-            <Link href={`/c/${category.slug}`}>{category.name}</Link>
-          </li>
+          <Card key={category.id} data={category} type='category' />
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </Template>
   )
 }
 
