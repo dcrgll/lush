@@ -21,22 +21,25 @@ export default async function ProductPage({ params }) {
     <Template title={name} parent={`/c/${category.slug}`}>
       <Link href={`/c/${category.slug}`}>{category.name}</Link>
 
-      <img src={url} alt={alt} />
-
-      <ul>
-        {description?.blocks.map((block) => (
-          <li key={block.id}>
-            <div dangerouslySetInnerHTML={{ __html: block.data.text }} />
-          </li>
-        ))}
-      </ul>
-
-      <div className='mt-2 flex flex-col'>
-        <strong>
-          {amount}
-          {currency}
-        </strong>
-        <Button />
+      <div className='flex max-w-7xl'>
+        <img src={url} alt={alt} className='object-contain' />
+        <div>
+          <ul>
+            {description?.blocks.map((block) => (
+              <li key={block.id}>
+                <div dangerouslySetInnerHTML={{ __html: block.data.text }} />
+              </li>
+            ))}
+          </ul>
+          <hr className='my-8' />
+          <div className='mx-auto mt-2 flex max-w-md justify-between'>
+            <strong>
+              {amount}
+              {currency}
+            </strong>
+            <Button />
+          </div>
+        </div>
       </div>
     </Template>
   )
