@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { useQuery } from '@/utils/useQuery'
 
+import Button from '@/app/components/button'
+import Template from '@/app/components/template'
+
 import { getDescription, getImage, getPrice, getProduct } from './helpers'
 import { query } from './query'
 
@@ -15,22 +18,26 @@ export default async function ProductPage({ params }) {
   const description = getDescription(data)
 
   return (
-    <div>
+    <Template title={name} parent={`/c/${category.slug}`}>
       <Link href={`/c/${category.slug}`}>{category.name}</Link>
 
       <img src={url} alt={alt} />
-      <h1>{name}</h1>
+
       <ul>
-        {description.blocks.map((block) => (
+        {description?.blocks.map((block) => (
           <li key={block.id}>
             <div dangerouslySetInnerHTML={{ __html: block.data.text }} />
           </li>
         ))}
       </ul>
-      <div>
-        {amount}
-        {currency}
+
+      <div className='mt-2 flex flex-col'>
+        <strong>
+          {amount}
+          {currency}
+        </strong>
+        <Button />
       </div>
-    </div>
+    </Template>
   )
 }

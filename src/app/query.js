@@ -6,6 +6,10 @@ export const query = `
           slug
           name
           description
+          backgroundImage {
+            url
+            alt
+          }
         }
       }
     }

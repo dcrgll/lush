@@ -1,5 +1,4 @@
 export function getProduct(data) {
-  console.log(data)
   return data.product
 }
 
