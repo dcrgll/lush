@@ -17,7 +17,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.12",
     "autoprefixer": "10.4.14",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "next": "13.3.0",
     "ngrok": "^4.3.3",
     "postcss": "8.4.21",
